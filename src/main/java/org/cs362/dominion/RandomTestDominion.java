@@ -10,10 +10,12 @@ public class RandomTestDominion {
 		Turn takeTurn;
 		Random randomness = new Random();
 
-		randomness.setSeed(10);
+		randomness.setSeed(System.currentTimeMillis());
 		
 		numberOfPlayers=(randomness.nextInt(3))+2;
 		Player[] players=new Player[numberOfPlayers];
+		
+		System.out.println("Number of player: "+numberOfPlayers);
 		
 		for(int i=0; i<numberOfPlayers; i++) players[i]=new Player(supply);
 		
@@ -23,7 +25,7 @@ public class RandomTestDominion {
 		{
 			for(int i=0; i<numberOfPlayers; i++){
 				takeTurn=new Turn(players[i], supply);
-				System.out.println("Player "+(i+1)+":");
+				//System.out.println("Player "+(i+1)+":");
 				takeTurn.takeTurn(players[i], players, supply);
 			}
 		}
